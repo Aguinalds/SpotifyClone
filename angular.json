@@ -30,8 +30,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
-          },
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths" : [
+              "./src/assets/styles"
+            ]
+          }
+        },
           "configurations": {
             "production": {
               "budgets": [
@@ -103,5 +108,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "bcbd2794-b621-4d28-90bd-8f1965434837"
   }
 }
