@@ -1,11 +1,11 @@
 import { Routes } from "@angular/router";
-import { AutheticaterGuard } from "./pages/autheticater.guard";
+import { AutheticaterGuard } from "./pages/guards/autheticater.guard";
 
 
 export const AppRotas :  Routes = [
     {
         path: '',
-        redirectTo: 'login',
+        redirectTo: 'player',
         pathMatch: 'full'
     },
     {

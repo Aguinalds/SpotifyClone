@@ -2,13 +2,18 @@ import { Injectable } from '@angular/core';
 import { CanLoad, Route, UrlSegment, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import {Router} from '@angular/router'
+import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutheticaterGuard implements CanLoad {
 
-  constructor(private router: Router){
+  constructor(
+    private router: Router,
+    private spotifyService: SpotifyService){
+
+
 
   }
 
@@ -22,7 +27,13 @@ export class AutheticaterGuard implements CanLoad {
       return false;
     }
 
-    return true;
+    return new Promise(async (res) => {
+      const usuarioCriado = await this.spotifyService.iniciarlizarUsuario();
+      if(usuarioCriado)
+      res(true);
+      else
+      res(this.naoAutenticater());
+    });
       
   }
 
